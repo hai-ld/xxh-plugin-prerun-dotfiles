@@ -1,0 +1,17 @@
+[core]
+	pager = delta
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	name = Dong Hai Luong
+[push]
+	default = current
+[delta]
+	side-by-side = true
+[pull]
+	ff = only
+[fetch]
+	prune = true
+[cola]
+	startupmode = folder
+	spellcheck = true

@@ -1,0 +1,55 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'bling/vim-airline'
+
+call plug#end()
+
+" Performance
+set noswapfile
+set lazyredraw
+
+" Editing
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set smarttab
+set expandtab
+noremap <Leader>p "_ddP
+
+" UI
+"set switchbuf+=usetab,newtab
+"set relativenumber
+set number
+set laststatus=2
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+colorscheme solarized8
+set background=dark
+
+" Custom filetype configuration
+au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
+au BufNewFile,BufRead Vagrantfile* setlocal ft=ruby
+au FileType yaml setlocal ts=2 sts=2 sw=2 colorcolumn=1,2,5,6
+
+" Write with sudo when vim started with unprevilege user
+cmap w!! w !sudo tee > /dev/null %
+
+" Tab
+nnoremap <Space> :bnext<CR>
+set hidden
+set isfname-=,
+
+nnoremap <C-P> :FZF<CR>
+nnoremap <leader>gf :call fzf#vim#files('.', {'options':'--query '.expand('<cfile>')})<CR>
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
+
+set noshowmode
+set mouse=nv
+set clipboard=unnamed
