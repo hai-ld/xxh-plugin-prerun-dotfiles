@@ -1,13 +1,3 @@
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'bling/vim-airline'
-
-call plug#end()
-
 " Performance
 set noswapfile
 set lazyredraw
@@ -29,7 +19,6 @@ set laststatus=2
 if (has("termguicolors"))
   set termguicolors
 endif
-colorscheme solarized8
 set background=dark
 
 " Custom filetype configuration
@@ -53,3 +42,5 @@ let g:airline_powerline_fonts=1
 set noshowmode
 set mouse=nv
 set clipboard=unnamed
+
+source ~/.vim/sensible.vim
