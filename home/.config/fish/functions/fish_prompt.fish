@@ -52,7 +52,7 @@ function fish_prompt
     set -e __CURRENT_GIT_STATUS
     set gitstatus "$__GIT_PROMPT_DIR/gitstatus.py"
 
-    set _GIT_STATUS (/usr/bin/python3 $gitstatus)
+    set _GIT_STATUS (command -q /usr/bin/python3 $gitstatus)
     set __CURRENT_GIT_STATUS $_GIT_STATUS
 
     set __CURRENT_GIT_STATUS_PARAM_COUNT (count $__CURRENT_GIT_STATUS)
